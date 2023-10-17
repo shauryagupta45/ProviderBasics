@@ -44,6 +44,7 @@ class _CounterScreenState extends State<CounterScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           countProvider.setCount();
+          //for increasing the counter
         },
         child: const Icon(Icons.add),
       ),
