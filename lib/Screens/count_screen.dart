@@ -35,6 +35,7 @@ class _CounterScreenState extends State<CounterScreen> {
       body: Center(
         child: Consumer<CountProvider>(builder: (context, value, child) {
           // before using Consumer , it was building the whole build widget again and again, consumer is what does the magic and is responsible for building only the corresponding widget
+          print("Updated value");
           return Text(
             value.count.toString(),
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0),
