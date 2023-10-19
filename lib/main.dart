@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    print("Build");
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => CountProvider()),
@@ -26,13 +27,28 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => FavoriteItemProvider()),
           ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ],
-        child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const ThemeChanger(),
-        ));
+        child: Builder(builder: (BuildContext context) {
+          final themeChanger =
+              Provider.of<ThemeProvider>(context, listen: false);
+          return Consumer<ThemeProvider>(builder: (context, value, child) {
+            print("main provider");
+            return MaterialApp(
+              title: 'Flutter Demo',
+              themeMode: value.themeMode,
+              theme: ThemeData(
+                brightness: Brightness.light,
+                primarySwatch: Colors.red,
+              ),
+              darkTheme: ThemeData(
+                brightness: Brightness.dark,
+                primarySwatch: Colors.yellow,
+                primaryColor: Colors.purpleAccent,
+                // appBarTheme: AppBarTheme(backgroundColor: Colors.teal),
+                iconTheme: const IconThemeData(color: Colors.pink),
+              ),
+              home: const ThemeScreen(),
+            );
+          });
+        }));
   }
 }
