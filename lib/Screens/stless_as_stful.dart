@@ -11,7 +11,7 @@ class NotifyListenerScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Text("Counter Screen"),
+        child: Text(" Counter Screen "),
       ),
       floatingActionButton: FloatingActionButton(onPressed: onPressed),
     );
