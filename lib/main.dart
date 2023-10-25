@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_basic/Provider/auth_provider.dart';
 import 'package:provider_basic/Provider/count_provider.dart';
 import 'package:provider_basic/Provider/favorite_item_provider.dart';
 import 'package:provider_basic/Provider/sliderScreenProvider.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => SliderProvider()),
           ChangeNotifierProvider(create: (_) => FavoriteItemProvider()),
           ChangeNotifierProvider(create: (_) => ThemeProvider()),
+          ChangeNotifierProvider(create: (_) => AuthProvider()),
         ],
         child: Builder(builder: (BuildContext context) {
           final themeChanger =
