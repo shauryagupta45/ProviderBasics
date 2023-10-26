@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           TextFormField(
             controller: passController,
-            decoration: InputDecoration(hintText: "Enter Password"),
+            decoration: InputDecoration(hintText: "Password"),
           ),
         ],
       ),
